@@ -2,6 +2,8 @@ FROM frolvlad/alpine-glibc
 
 ARG VCS_REF
 ARG BUILD_DATE
+ARG OO_VERSION="3.9.0"
+ARG OO_HASH="191fece"
 
 # Metadata
 LABEL org.label-schema.vcs-ref=$VCS_REF \
