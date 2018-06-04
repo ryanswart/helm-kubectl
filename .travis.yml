@@ -1,8 +1,8 @@
 sudo: required
 
 env:
-  DOCKER_IMAGE=dtzar/helm-kubectl
-  DOCKER_TAG=2.9.1
+  DOCKER_IMAGE=ryanswrt/helm-kubectl-oc
+  DOCKER_TAG=1.0.0
 
 services:
   - docker

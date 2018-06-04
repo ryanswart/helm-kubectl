@@ -1,4 +1,4 @@
-FROM alpine
+FROM frolvlad/alpine-glibc
 
 ARG VCS_REF
 ARG BUILD_DATE
@@ -22,6 +22,9 @@ RUN apk add --no-cache ca-certificates bash git \
     && chmod +x /usr/local/bin/kubectl \
     && wget -q http://storage.googleapis.com/kubernetes-helm/helm-${HELM_VERSION}-linux-amd64.tar.gz -O - | tar -xzO linux-amd64/helm > /usr/local/bin/helm \
     && chmod +x /usr/local/bin/helm
+
+RUN curl -sSLo oc_client.tar.gz https://github.com/openshift/origin/releases/download/v${OO_VERSION}/openshift-origin-client-tools-v${OO_VERSION}-${OO_HASH}-linux-64bit.tar.gz
+RUN tar -xzf oc_client.tar.gz -C /bin --strip-components 1 
 
 WORKDIR /config
 
